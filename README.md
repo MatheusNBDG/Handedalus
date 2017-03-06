@@ -4,21 +4,21 @@ Está é a versão alpha de um aplicativo android direcionado para o gerenciamento 
 
 Algumas observações devem ser feitas sobre a versão alpha:
 
-1.Há um problema com a confuguração dos layout em que não sei/desejo resolver agora que tem como consequência que o Thread principal fica durante a captura de dados em espera pelo termino do Thread de network.
+- '1.' Há um problema com a confuguração dos layout em que não sei/desejo resolver agora que tem como consequência que o Thread principal fica durante a captura de dados em espera pelo termino do Thread de network.
 
-2.A interface não está completa ainda. O aplicativo conta com uma provisória.
+- '2.' A interface não está completa ainda. O aplicativo conta com uma provisória.
 
-3.Para trocar a senha use o botão de voltar.
+- '3.' Para trocar a senha use o botão de voltar.
 
-4.Tenho que realizar bastante teste ainda, mas as funções javas já foram testadas em um copilador normal.
+- '4.' Tenho que realizar bastante teste ainda, mas as funções javas já foram testadas em um copilador normal.
 
-5.Tecnicamente, o programa foi programado para monitorar os seus livros enquando o aplicativo estiver fechado. Mas, ainda não fui capaz de testar isso então aconselho em não confiar no aparecimento automatico de notificações.
+- '5.' Tecnicamente, o programa foi programado para monitorar os seus livros enquando o aplicativo estiver fechado. Mas, ainda não fui capaz de testar isso então aconselho em não confiar no aparecimento automatico de notificações.
 
 ...
 
 ## Como instalar 
 
-Basta baixar o apk disponível acima para um dispositivo android e instala-lo. (Pokemom go fellings...)
+Basta baixar o apk disponível acima para um dispositivo android e instala-lo. (Pokemon go fellings...)
 
 ## Projeto
 
