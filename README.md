@@ -8,7 +8,11 @@ Algumas observações devem ser feitas sobre a versão alpha:
 
 2.A interface não está completa ainda. O aplicativo conta com uma provisória.
 
-3.Não é possível trocar de usuario no aplicativo após marcar para salvar o usuário e senha. Por hora, caso o deseje é necessário apagar os dados do aplicaivo nas configurações de aplicativo do android.
+3.Para trocar a senha use o botão de voltar.
+
+4.Tenho que realizar bastante teste ainda, mas as funções javas já foram testadas em um copilador normal.
+
+5.Tecnicamente, o programa foi programado para monitorar os seus livros enquando o aplicativo estiver fechado. Mas, ainda não fui capaz de testar isso então aconselho em não confiar no aparecimento automatico de notificações.
 
 ...
 
