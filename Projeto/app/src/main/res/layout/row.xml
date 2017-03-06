@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#c3c6c7"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginActivity"
+    android:gravity="center"
+    android:weightSum="1"
+    android:id="@+id/row">
+
+    <Space
+        android:layout_width="30dp"
+        android:layout_height="15dp" />
+
+    <LinearLayout
+        android:background="@drawable/border"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:weightSum="1">
+
+        <Space
+            android:layout_width="30dp"
+            android:layout_height="5dp" />
+
+        <TextView
+            android:text="Livro"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView" />
+
+        <Space
+        android:layout_width="30dp"
+        android:layout_height="25dp" />
+
+    <TextView
+        android:text="Livro tal"
+        android:padding="10dip"
+        android:id="@+id/tituloLivro"
+        android:background="#ffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Space
+        android:layout_width="30dp"
+        android:layout_height="10dp" />
+
+    <TextView
+        android:text="Autor tal"
+        android:padding="10dip"
+        android:id="@+id/autorLivro"
+        android:background="#ffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+        <Space
+            android:layout_width="30dp"
+            android:layout_height="6dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:text="30/10/1995"
+            android:padding="10dip"
+            android:id="@+id/dataLivro"
+            android:background="#ffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Space
+            android:layout_width="30dp"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:text="Institute"
+            android:padding="10dip"
+            android:id="@+id/instituteLivro"
+            android:background="#ffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="30dp"
+        android:layout_height="5dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
