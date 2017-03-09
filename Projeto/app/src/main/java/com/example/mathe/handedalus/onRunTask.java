@@ -1,5 +1,6 @@
 package com.example.mathe.handedalus;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -8,6 +9,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
+import android.support.v4.content.WakefulBroadcastReceiver;
 import android.util.Log;
 
 import com.google.android.gms.gcm.GcmNetworkManager;
@@ -23,42 +25,26 @@ import static android.R.id.list;
  * Created by Mathe on 05/03/2017.
  */
 
-class onRunTask extends GcmTaskService {
+public class onRunTask extends WakefulBroadcastReceiver {
 
-    public void onInitializeTasks() {
-        super.onInitializeTasks();
-    }
-    @Override
-    public int onRunTask(TaskParams taskParams) {
-        String numUSP = library.username;
-        Log.d("dedalus", numUSP);
-        String passWord = library.password;
-        try {
-            network net = new network();
-            net.execute(numUSP,passWord);
-            library.myLibrary=net.myLibrary;
-        }catch(Exception e) {
-            return GcmNetworkManager.RESULT_FAILURE;
-        }
+    public static String NOTIFICATION_ID = "notification-id";
+    public static String NOTIFICATION = "notification";
 
-        List<book> myLibrary = library.myLibrary;
-        Collections.sort(myLibrary, new CustomComparator());
-
-        int days = Integer.parseInt(dias.getRelativeTime(myLibrary.get(0).data));
-        if(days<=3){
-            callNotification(Integer.toString(days));
-        }
-        return GcmNetworkManager.RESULT_SUCCESS;
+    public void onReceive(Context context, Intent intent) {
+        NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+        Notification notification = callNotification(library.days, context).build();
+        int id = 0;
+        notificationManager.notify(id, notification);
     }
 
-    public void callNotification(String days){
+    public static NotificationCompat.Builder callNotification(String days, Context context){
         NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(this)
+                new NotificationCompat.Builder(context)
                         .setSmallIcon(R.drawable.notification_incons)
                         .setContentTitle("Aviso de livro a expirar logo!")
-                        .setContentText("Você tem um livro que irá expirar em " + days + ".");
-        Intent resultIntent = new Intent(this, LivrosActivity.class);
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+                        .setContentText("Você tem um livro que irá expirar em " + days + " dias.");
+        Intent resultIntent = new Intent(context, LivrosActivity.class);
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
         stackBuilder.addParentStack(LivrosActivity.class);
         stackBuilder.addNextIntent(resultIntent);
         PendingIntent resultPendingIntent =
@@ -67,9 +53,8 @@ class onRunTask extends GcmTaskService {
                         PendingIntent.FLAG_UPDATE_CURRENT
                 );
         mBuilder.setContentIntent(resultPendingIntent);
-        NotificationManager mNotificationManager =
-                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        int NOTIFICATION_ID = 100;
-        mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+        return mBuilder;
     }
+
+
 }

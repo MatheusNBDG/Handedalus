@@ -250,7 +250,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="3b95eb0b7c97c147b46cb5534e6000daf4cbf596">
+        sha1="af1a7281ddc34e4b86cabc87736ba143c9ad9563">
         <dex dex="D:\Projects\Android\iDedalus\Handedalus\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_e495367fd0d944fa6317bece267c8fbfbb909549\classes.dex" />
     </item>
     <item
@@ -484,7 +484,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="74ef0bb320d0de3343f2b54826d4f4cee2e60b10">
+        sha1="c3e01894ed06cdb478e974b5a7014fcffcb94606">
         <dex dex="D:\Projects\Android\iDedalus\Handedalus\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_6e73f9cbdc30c27a71e8c20cfb71e4cb141de33a\classes.dex" />
     </item>
     <item

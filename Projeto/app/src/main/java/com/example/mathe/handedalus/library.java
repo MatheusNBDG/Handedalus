@@ -8,6 +8,8 @@ import java.util.List;
 
 public class library {
     public static List<book> myLibrary;
+    public static List<String> books;
     public static String username;
     public static String password;
+    public static String days;
 }

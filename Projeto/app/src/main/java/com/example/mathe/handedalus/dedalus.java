@@ -160,7 +160,8 @@ public class dedalus{
         return myLibrary;
     }
 
-    public static List<book> renovar(String _username, String _password, List<String> _books) throws Exception{
+    public static List<book> renovar(String _username, String _password) throws Exception{
+        List<String> _books=library.books;
         String userAgent = System.getProperty("http.agent");
         Response loginForm = Jsoup.connect("https://primofs1.sibi.usp.br/pds")
                 .header("Accept-Encoding", "gzip, deflate")

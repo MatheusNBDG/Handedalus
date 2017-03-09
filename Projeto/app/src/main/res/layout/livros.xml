@@ -8,14 +8,38 @@
     android:background="#d2e1e6e7">
 
 
+
     <Button
         android:text="Renovar selecionados"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/renovar" />
 
-        <requestFocus />
-    <ScrollView
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/lout"
+        android:weightSum="1">
+        <Button
+            android:text="Notificar sobre o mais recente em"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/alerta" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:hint="dias"
+            android:id="@+id/contagem"
+            android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

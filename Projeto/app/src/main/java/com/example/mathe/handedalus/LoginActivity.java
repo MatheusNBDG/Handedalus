@@ -1,7 +1,10 @@
 package com.example.mathe.handedalus;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,7 +21,6 @@ import android.annotation.TargetApi;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
 
 import android.content.CursorLoader;
@@ -70,12 +72,15 @@ public class LoginActivity extends Activity implements OnClickListener {
     TextView mensage;
     Button button;
     Boolean hasLogged;
+    static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+        context = getApplicationContext();
 
         checkBox = (CheckBox) findViewById(R.id.checkBox1);
         numUsp = (EditText) findViewById(R.id.numUsp);
@@ -127,34 +132,35 @@ public class LoginActivity extends Activity implements OnClickListener {
     @Override
     public void onClick(View v){
         setContentView(R.layout.login);
-        ((TextView)findViewById(R.id.mensagem)).setText("Carregando...");
+        library.username=numUsp.getText().toString();
+        library.password=password.getText().toString();
         // TODO Auto-generated method stub
         if (checkBox.isChecked()){
             savePreferences("numUsp", numUsp.getText().toString());
             savePreferences("password", password.getText().toString());
             savePreferences("hasLogged", checkBox.isChecked());
+            //task periodicTask = new task(this);
+            //periodicTask.maketask();
         }
-        List<book> mem = new ArrayList<book>();
-        try{
-            network net = new network();
-            if(net.execute(numUsp.getText().toString(), password.getText().toString()).get()==null){
-                LivrosActivity activityN = new LivrosActivity();
-                Intent myIntent = new Intent(this, activityN.getClass());
-                if (!hasLogged) {
-                    task periodicTask = new task(this);
-                    periodicTask.maketask();
-                }
-                startActivity(myIntent);
-            }
-            if(checkBox.isChecked()) {
-                savePreferences("hasLogged", true);
-            }
-        }catch(Exception e){
-            LoginActivity activity = new LoginActivity();
-            Intent myIntent = new Intent(this, activity.getClass());
-            mensage.setText("Não foi possível logar...");
+        if(isOnline()) {
+            Carregando activityN = new Carregando();
+            Intent myIntent = new Intent(this, activityN.getClass());
             startActivity(myIntent);
+        }else{
+            mensage.setText("Verifique a conexão com internet");
         }
+
+    }
+
+    public boolean isOnline() {
+        ConnectivityManager cm =
+                (ConnectivityManager) getSystemService(this.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
+
+    public static Context LoginActivityContext(){
+        return context;
     }
 }
 
