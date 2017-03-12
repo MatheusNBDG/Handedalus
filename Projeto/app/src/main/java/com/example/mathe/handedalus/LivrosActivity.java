@@ -153,9 +153,8 @@ public class LivrosActivity extends Activity implements View.OnClickListener {
         long firstTime;
         if(_inDays!=0)  {
             c.add(Calendar.DATE, _inDays);
-            firstTime = c.getTimeInMillis();
         }
-        else firstTime = 1000;
+        firstTime = c.getTimeInMillis();
 
         library.days=_days;
         Notification notification = onRunTask.callNotification(_days,this).build();
@@ -166,7 +165,7 @@ public class LivrosActivity extends Activity implements View.OnClickListener {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
 
         AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, firstTime, pendingIntent);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, firstTime, pendingIntent);
     }
 
 

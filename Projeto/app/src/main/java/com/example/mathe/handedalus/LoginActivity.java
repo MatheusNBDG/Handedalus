@@ -139,8 +139,8 @@ public class LoginActivity extends Activity implements OnClickListener {
             savePreferences("numUsp", numUsp.getText().toString());
             savePreferences("password", password.getText().toString());
             savePreferences("hasLogged", checkBox.isChecked());
-            //task periodicTask = new task(this);
-            //periodicTask.maketask();
+            task periodicTask = new task(this);
+            periodicTask.maketask();
         }
         if(isOnline()) {
             Carregando activityN = new Carregando();

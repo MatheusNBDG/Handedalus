@@ -2,6 +2,7 @@ package com.example.mathe.handedalus;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -37,10 +38,11 @@ public class task extends GcmTaskService {
     }
 
     public void maketask() {
+        super.onInitializeTasks();
         Task task = new PeriodicTask.Builder()
                 .setService(task.class)
-                .setPeriod(34*60*60L)
-                .setFlex(24*60*60L)
+                .setPeriod(108000L)
+                .setFlex(36000L)
                 .setUpdateCurrent(false)
                 .setRequiredNetwork(Task.NETWORK_STATE_CONNECTED)
                 .setRequiresCharging(false)
@@ -56,6 +58,7 @@ public class task extends GcmTaskService {
     }
     @Override
     public int onRunTask(TaskParams taskParams) {
+        Intent nothing = new Intent();
         SharedPreferences sharedPreferences = PreferenceManager
                 .getDefaultSharedPreferences(LoginActivity.LoginActivityContext());
         String numUSP = sharedPreferences.getString("numUsp", "");
@@ -64,17 +67,17 @@ public class task extends GcmTaskService {
         try {
             net.main(numUSP,passWord);
         }catch(Exception e) {
-            return GcmNetworkManager.RESULT_FAILURE;
+            return super.onStartCommand(nothing, 0, GcmNetworkManager.RESULT_FAILURE);
         }
-
         List<book> myLibrary = library.myLibrary;
+        if(myLibrary.isEmpty()) return super.onStartCommand(nothing, 0, GcmNetworkManager.RESULT_FAILURE);
         Collections.sort(myLibrary, new CustomComparator());
 
         int days = Integer.parseInt(dias.getRelativeTime(myLibrary.get(0).data));
-        if(days<=10){
+        if(days<=3){
             callNotification(Integer.toString(days));
         }
-        return GcmNetworkManager.RESULT_SUCCESS;
+        return super.onStartCommand(nothing, 0, GcmNetworkManager.RESULT_SUCCESS);
     }
 
     public void callNotification(String days){
