@@ -17,7 +17,9 @@ Suas principais funcionabilidades são:
 
 Além disso, é interessante explicitar algumas considerações sobre a atual versão para caso você queira trabalhar nela:
 
-- Não compreendo o atual layout como o da versão final. Predento confifugar um layout mais fino e minimalista para a versão final.
+- Há um bug fatal com a atividade de background, o aplicativo periodicamente irá parar sozinho.
+
+- Notificações marcadas para o futuro não são avisadas.
 
 - Há um bug com "Avisar-me em n dias", notificações futuras não gravam em quantos dias o livro está para vençer e mostra null no lugar. É facil de se resolver.
 

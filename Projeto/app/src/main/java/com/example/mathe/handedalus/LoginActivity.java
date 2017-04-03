@@ -107,7 +107,6 @@ public class LoginActivity extends Activity implements OnClickListener {
         } else {
             checkBox.setChecked(false);
         }
-
         numUsp.setText(numUSP);
         password.setText(passWord);
         hasLogged=HasLogged;
@@ -138,8 +137,9 @@ public class LoginActivity extends Activity implements OnClickListener {
         if (checkBox.isChecked()){
             savePreferences("numUsp", numUsp.getText().toString());
             savePreferences("password", password.getText().toString());
+            savePreferences("CheckBox_Value", true);
             savePreferences("hasLogged", checkBox.isChecked());
-            task periodicTask = new task(this);
+            task periodicTask = new task(LoginActivity.LoginActivityContext());
             periodicTask.maketask();
         }
         if(isOnline()) {

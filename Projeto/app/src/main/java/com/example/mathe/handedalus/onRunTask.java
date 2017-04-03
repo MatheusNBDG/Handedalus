@@ -32,26 +32,24 @@ public class onRunTask extends WakefulBroadcastReceiver {
 
     public void onReceive(Context context, Intent intent) {
         NotificationManager notificationManager = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
-        Notification notification = callNotification(library.days, context).build();
+        Notification notification = callNotification("alguns", context).build();
         int id = 0;
         notificationManager.notify(id, notification);
     }
 
-    public static NotificationCompat.Builder callNotification(String days, Context context){
+    public static NotificationCompat.Builder callNotification(String _dias, Context context){
+        if(_dias.isEmpty()) _dias="alguns";
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(context)
                         .setSmallIcon(R.drawable.notification_incons)
                         .setContentTitle("Aviso de livro a expirar logo!")
-                        .setContentText("Você tem um livro que irá expirar em " + days + " dias.");
+                        .setContentText("Um livro irá expirar em " + _dias + " dias.");
         Intent resultIntent = new Intent(context, LivrosActivity.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
         stackBuilder.addParentStack(LivrosActivity.class);
         stackBuilder.addNextIntent(resultIntent);
         PendingIntent resultPendingIntent =
-                stackBuilder.getPendingIntent(
-                        0,
-                        PendingIntent.FLAG_UPDATE_CURRENT
-                );
+                stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
         mBuilder.setContentIntent(resultPendingIntent);
         return mBuilder;
     }

@@ -12,4 +12,6 @@ public class library {
     public static String username;
     public static String password;
     public static String days;
+    public static List<String> oldDate;
+    public static List<book> myTrueLibrary;
 }

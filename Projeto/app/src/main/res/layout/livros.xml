@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LivrosActivity"
-    android:background="#d2e1e6e7">
+    android:background="#0d98ba">
 
 
 
@@ -51,10 +51,11 @@
 
             <include layout="@layout/row"
                 android:id="@+id/row0"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <CheckBox
-                android:text="Renovar este livro"
+                android:text="Marcar para renovar este livro"
+                android:textSize="17dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -67,7 +68,8 @@
                 android:visibility="gone" />
 
             <CheckBox
-                android:text="Renovar este livro"
+                android:text="Marcar para renovar este livro"
+                android:textSize="17dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -80,7 +82,8 @@
                 android:visibility="gone" />
 
             <CheckBox
-                android:text="Renovar este livro"
+                android:text="Marcar para renovar este livro"
+                android:textSize="17dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -93,7 +96,8 @@
                 android:visibility="gone" />
 
             <CheckBox
-                android:text="Renovar este livro"
+                android:text="Marcar para renovar este livro"
+                android:textSize="17dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -106,7 +110,8 @@
                 android:visibility="gone" />
 
             <CheckBox
-                android:text="Renovar este livro"
+                android:text="Marcar para renovar este livro"
+                android:textSize="17dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -119,7 +124,8 @@
                 android:visibility="gone" />
 
             <CheckBox
-                android:text="Renovar este livro"
+                android:text="Marcar para renovar este livro"
+                android:textSize="17dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -132,7 +138,8 @@
                 android:visibility="gone" />
 
             <CheckBox
-                android:text="Renovar este livro"
+                android:text="Marcar para renovar este livro"
+                android:textSize="17dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -145,7 +152,8 @@
                 android:visibility="gone" />
 
             <CheckBox
-                android:text="Renovar este livro"
+                android:text="Marcar para renovar este livro"
+                android:textSize="17dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -158,7 +166,8 @@
                 android:visibility="gone" />
 
             <CheckBox
-                android:text="Renovar este livro"
+                android:text="Marcar para renovar este livro"
+                android:textSize="17dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -171,7 +180,8 @@
                 android:visibility="gone" />
 
             <CheckBox
-                android:text="Renovar este livro"
+                android:text="Marcar para renovar este livro"
+                android:textSize="17dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"

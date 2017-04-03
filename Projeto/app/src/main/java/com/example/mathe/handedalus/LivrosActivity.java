@@ -142,6 +142,8 @@ public class LivrosActivity extends Activity implements View.OnClickListener {
                 ((TextView) placeHolder.findViewById(R.id.tituloLivro)).setText(myLibrary.get(i).name);
                 ((TextView) placeHolder.findViewById(R.id.instituteLivro)).setText(myLibrary.get(i).library);
                 ((TextView) placeHolder.findViewById(R.id.dataLivro)).setText(myLibrary.get(i).data + " (" + dias.getRelativeTime(myLibrary.get(i).data) + ")");
+                if(Integer.parseInt(dias.getRelativeTime(myLibrary.get(i).data))<=2)
+                    ((TextView) placeHolder.findViewById(R.id.dataLivro)).setTextColor(0xffff0000);
             }
         } else {
             Log.d("error", "Biblioteca vazia!");
@@ -157,14 +159,13 @@ public class LivrosActivity extends Activity implements View.OnClickListener {
         firstTime = c.getTimeInMillis();
 
         library.days=_days;
-        Notification notification = onRunTask.callNotification(_days,this).build();
+        Notification notification = onRunTask.callNotification(_days,LoginActivity.context).build();
 
-        Intent notificationIntent = new Intent(this, onRunTask.class);
-        notificationIntent.putExtra(onRunTask.NOTIFICATION_ID, onRunTask.NOTIFICATION_ID);
+        Intent notificationIntent = new Intent(LoginActivity.context, onRunTask.class);
         notificationIntent.putExtra(onRunTask.NOTIFICATION, notification);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(LoginActivity.context, 0, notificationIntent, PendingIntent.FLAG_CANCEL_CURRENT);
 
-        AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+        AlarmManager alarmManager = (AlarmManager) LoginActivity.context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.set(AlarmManager.RTC_WAKEUP, firstTime, pendingIntent);
     }
 

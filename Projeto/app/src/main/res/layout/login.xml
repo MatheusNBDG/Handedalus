@@ -12,11 +12,12 @@
 
 
     <ImageView
-        android:layout_width="match_parent"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         app:srcCompat="@mipmap/ic_launcher"
         android:id="@+id/imageView"
         android:visibility="visible"
+        android:foregroundGravity="center_horizontal"
         android:layout_weight="0.26" />
 
     <Space

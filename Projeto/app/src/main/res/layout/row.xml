@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#c3c6c7"
+    android:background="#0d98ba"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -11,88 +11,95 @@
     android:id="@+id/row">
 
     <Space
-        android:layout_width="30dp"
-        android:layout_height="15dp" />
+        android:layout_width="25dp"
+        android:layout_height="50dp" />
 
     <LinearLayout
-        android:background="@drawable/border"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center"
-        android:weightSum="1">
-
-        <Space
-            android:layout_width="30dp"
-            android:layout_height="5dp" />
-
-        <TextView
-            android:text="Livro"
-            android:textSize="30dp"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView" />
-
-        <Space
-        android:layout_width="30dp"
-        android:layout_height="25dp" />
-
-    <TextView
-        android:text="Livro tal"
-        android:padding="10dip"
-        android:id="@+id/tituloLivro"
-        android:background="#ffff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <Space
-        android:layout_width="30dp"
-        android:layout_height="10dp" />
-
-    <TextView
-        android:text="Autor tal"
-        android:padding="10dip"
-        android:id="@+id/autorLivro"
-        android:background="#ffff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-        <Space
-            android:layout_width="30dp"
-            android:layout_height="6dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="47dp"
-        android:orientation="horizontal"
+        android:weightSum="1"
         android:gravity="center">
 
         <TextView
-            android:text="30/10/1995"
-            android:padding="10dip"
-            android:id="@+id/dataLivro"
-            android:background="#ffff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Space
-            android:layout_width="30dp"
-            android:layout_height="1dp" />
+            android:text="Título: "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#840d8c"
+            android:visibility="visible"/>
 
         <TextView
-            android:text="Institute"
-            android:padding="10dip"
-            android:id="@+id/instituteLivro"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+            android:background="#a9a9a9"
+            android:visibility="visible"/>
+        
+        <Space
+            android:layout_width="25dp"
+            android:layout_height="25dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:text="Livro tal"
+                android:id="@+id/tituloLivro"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffff"
+                android:textColor="#0b0b0b"
+                android:textSize="16dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:text="42/42/4242"
+                android:padding="7dip"
+                android:id="@+id/dataLivro"
+                android:textSize="16dp"
+                android:background="#ffff"
+                android:textColor="#0b0b0b"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp" />
+
+            <TextView
+                android:text="|"
+                android:padding="7dip"
+                android:textSize="16dp"
+                android:background="#ffff"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp" />
+
+            <TextView
+                android:text="Institute"
+                android:padding="7dip"
+                android:id="@+id/instituteLivro"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:textColor="#0b0b0b"
+                android:background="#ffff"
+                android:textSize="16dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:text="Autor tal"
+            android:id="@+id/autorLivro"
+            android:gravity="center_horizontal"
+            android:textColor="#0b0b0b"
             android:background="#ffff"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <Space
-        android:layout_width="30dp"
-        android:layout_height="5dp" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"/>
 
     </LinearLayout>
 

@@ -35,8 +35,6 @@ import static android.text.format.DateUtils.MINUTE_IN_MILLIS;
         DateTime now = new DateTime( timeZone );
 
         int days = Days.daysBetween( now, future ).getDays();
-        Interval interval = new Interval( now, future );
-        Period period = new Period( interval );
 
         String daysString  = Integer.toString(days);
         return daysString;

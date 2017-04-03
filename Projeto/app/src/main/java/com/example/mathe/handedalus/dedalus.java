@@ -42,7 +42,7 @@ public class dedalus{
         Response loginForm = Jsoup.connect("https://primofs1.sibi.usp.br/pds")
                 .header("Accept-Encoding", "gzip, deflate")
                 .method(Method.GET)
-                .timeout(100000)
+                .timeout(10000000)
                 .userAgent(userAgent)
                 .followRedirects(true)
                 .execute();
@@ -59,10 +59,9 @@ public class dedalus{
                 .data("url", "http://dedalus.usp.br:80/F/L7G49RY3FXMHAI5DQB8YE7XN59TUX7CJQSDIH9PDLN6SNNG1VX-14193?func=LOGIN-PAGE")
                 .cookies(loginForm.cookies())
                 .userAgent(userAgent)
-                .timeout(100000)
+                .timeout(10000000)
                 .followRedirects(true)
                 .method(Method.POST)
-                .timeout(10000)
                 .execute();
 
         Document page = doc.parse();
@@ -75,7 +74,7 @@ public class dedalus{
                 .header("Accept-Encoding", "gzip, deflate")
                 .method(Method.GET)
                 .cookies(loginForm.cookies())
-                .timeout(100000)
+                .timeout(10000000)
                 .userAgent(userAgent)
                 .followRedirects(true)
                 .execute();
@@ -91,7 +90,7 @@ public class dedalus{
                 .header("Accept-Encoding", "gzip, deflate")
                 .method(Method.GET)
                 .cookies(loginForm.cookies())
-                .timeout(100000)
+                .timeout(10000000)
                 .userAgent(userAgent)
                 .followRedirects(true)
                 .execute();
@@ -106,7 +105,7 @@ public class dedalus{
                 .header("Accept-Encoding", "gzip, deflate")
                 .method(Method.GET)
                 .cookies(loginForm.cookies())
-                .timeout(100000)
+                .timeout(10000000)
                 .userAgent(userAgent)
                 .followRedirects(true)
                 .execute();
@@ -120,7 +119,7 @@ public class dedalus{
                 .header("Accept-Encoding", "gzip, deflate")
                 .method(Method.GET)
                 .cookies(loginForm.cookies())
-                .timeout(100000)
+                .timeout(10000000)
                 .userAgent(userAgent)
                 .followRedirects(true)
                 .execute();
@@ -135,7 +134,7 @@ public class dedalus{
                 .header("Accept-Encoding", "gzip, deflate")
                 .method(Method.GET)
                 .cookies(loginForm.cookies())
-                .timeout(100000)
+                .timeout(10000000)
                 .userAgent(userAgent)
                 .followRedirects(true)
                 .execute();
@@ -143,20 +142,28 @@ public class dedalus{
         Document finalPage = finalResponse.parse();
         Element table = finalPage.select("table").get(6);
         Elements rows = table.select("tr");
-        List<book> myLibrary = new ArrayList<book>();
-        for(int i=1; i!=rows.size();i++){
-            Element row = rows.get(i);
-            Elements cols = row.select("td");
+        List<book> myLibrary=new ArrayList<book>();
+
+        for(int i=1; i<rows.size();i++){
             book baby = new book();
+            Element row;
+            Elements cols;
+
+            row = rows.get(i);
+            cols = row.select("td");
 
             baby.author=format(cols.get(2).toString());
             baby.name=format(cols.get(3).toString());
             baby.data=format(cols.get(5).toString());
             baby.library=format(cols.get(8).toString());
             baby.days=Integer.parseInt(dias.getRelativeTime(baby.data));
+
             myLibrary.add(baby);
+
         }
-        Log.d("test", myLibrary.get(0).author);
+
+        library.myLibrary=myLibrary;
+
         return myLibrary;
     }
 
@@ -166,7 +173,7 @@ public class dedalus{
         Response loginForm = Jsoup.connect("https://primofs1.sibi.usp.br/pds")
                 .header("Accept-Encoding", "gzip, deflate")
                 .method(Method.GET)
-                .timeout(100000)
+                .timeout(10000000)
                 .userAgent(userAgent)
                 .followRedirects(true)
                 .execute();
@@ -183,10 +190,9 @@ public class dedalus{
                 .data("url", "http://dedalus.usp.br:80/F/L7G49RY3FXMHAI5DQB8YE7XN59TUX7CJQSDIH9PDLN6SNNG1VX-14193?func=LOGIN-PAGE")
                 .cookies(loginForm.cookies())
                 .userAgent(userAgent)
-                .timeout(100000)
+                .timeout(10000000)
                 .followRedirects(true)
                 .method(Method.POST)
-                .timeout(10000)
                 .execute();
 
         Document page = doc.parse();
@@ -199,7 +205,7 @@ public class dedalus{
                 .header("Accept-Encoding", "gzip, deflate")
                 .method(Method.GET)
                 .cookies(loginForm.cookies())
-                .timeout(100000)
+                .timeout(10000000)
                 .userAgent(userAgent)
                 .followRedirects(true)
                 .execute();
@@ -215,7 +221,7 @@ public class dedalus{
                 .header("Accept-Encoding", "gzip, deflate")
                 .method(Method.GET)
                 .cookies(loginForm.cookies())
-                .timeout(100000)
+                .timeout(10000000)
                 .userAgent(userAgent)
                 .followRedirects(true)
                 .execute();
@@ -230,7 +236,7 @@ public class dedalus{
                 .header("Accept-Encoding", "gzip, deflate")
                 .method(Method.GET)
                 .cookies(loginForm.cookies())
-                .timeout(100000)
+                .timeout(10000000)
                 .userAgent(userAgent)
                 .followRedirects(true)
                 .execute();
@@ -244,7 +250,7 @@ public class dedalus{
                 .header("Accept-Encoding", "gzip, deflate")
                 .method(Method.GET)
                 .cookies(loginForm.cookies())
-                .timeout(100000)
+                .timeout(10000000)
                 .userAgent(userAgent)
                 .followRedirects(true)
                 .execute();
@@ -259,7 +265,7 @@ public class dedalus{
                 .header("Accept-Encoding", "gzip, deflate")
                 .method(Method.GET)
                 .cookies(loginForm.cookies())
-                .timeout(100000)
+                .timeout(10000000)
                 .userAgent(userAgent)
                 .followRedirects(true)
                 .execute();
@@ -268,7 +274,9 @@ public class dedalus{
         Element table = finalPage.select("table").get(6);
         Elements rows = table.select("tr");
         List<String> name= new ArrayList<String>();
-        for(int i=1; i!=rows.size();i++){
+
+        List<String> oldData = new ArrayList<String>();
+        for(int i=1; i<rows.size();i++){
             Element row = rows.get(i);
             Elements cols = row.select("td");
             for(String book : _books) {
@@ -276,7 +284,9 @@ public class dedalus{
                 boolean ifOrNot = candidato.equals(book);
                 if (ifOrNot){
                     String nameR= cols.get(0).toString().substring(52,240);
+                    String data=format(cols.get(5).toString());
                     name.add(nameR);
+                    oldData.add(data);
                     int um = nameR.indexOf("-EXP");
                     String sub = nameR.substring(0,um)+"-RENEW"+nameR.substring(um+4)+"&ill_unit=";
                     String end = sub.replace("amp;","");
@@ -285,20 +295,20 @@ public class dedalus{
                             .header("Accept-Encoding", "gzip, deflate")
                             .method(Method.GET)
                             .cookies(loginForm.cookies())
-                            .timeout(10000)
+                            .timeout(10000000)
                             .userAgent("Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.120 Safari/535.2")
                             .followRedirects(true)
                             .execute();
                 }
             }
+            library.oldDate=oldData;
         }
 
         Response finalResponse2 = Jsoup.connect(infoUrl2)
                 .header("Accept-Encoding", "gzip, deflate")
-                .method(Method.POST)
-                .data(name.get(0), "checked")
+                .method(Method.GET)
                 .cookies(loginForm.cookies())
-                .timeout(100000)
+                .timeout(10000000)
                 .userAgent(userAgent)
                 .followRedirects(true)
                 .execute();
@@ -308,6 +318,8 @@ public class dedalus{
         table = finalPage.select("table").get(6);
         rows = table.select("tr");
         List<book> myLibrary = new ArrayList<book>();
+
+        List<book> myTrueLibrary = new ArrayList<book>();
         for(int i=1; i!=rows.size();i++){
             Element row = rows.get(i);
             Elements cols = row.select("td");
@@ -319,8 +331,14 @@ public class dedalus{
             baby.library=format(cols.get(8).toString());
             baby.days=Integer.parseInt(dias.getRelativeTime(baby.data));
             myLibrary.add(baby);
+
+            for(String book : _books) {
+                if(book.equals(baby.name)){
+                    myTrueLibrary.add(baby);
+                }
+            }
         }
-        Log.d("test", myLibrary.get(0).author);
+        library.myTrueLibrary=myTrueLibrary;
         return myLibrary;
     }
 
