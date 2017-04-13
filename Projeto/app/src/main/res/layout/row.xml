@@ -1,106 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#0d98ba"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LoginActivity"
+    tools:context="com.matheusnbdg.handedalus.LoginActivity"
     android:gravity="center"
-    android:weightSum="1"
-    android:id="@+id/row">
-
-    <Space
-        android:layout_width="25dp"
-        android:layout_height="50dp" />
+    android:id="@+id/row"
+    android:layout_weight="1">
 
     <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@drawable/livro"
         android:orientation="vertical"
-        android:weightSum="1"
+        android:gravity="center">
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#ffff"
+        android:orientation="horizontal"
         android:gravity="center">
 
         <TextView
-            android:text="Título: "
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#840d8c"
-            android:visibility="visible"/>
+            android:text="10"
+            android:textSize="25sp"
+            android:background="@drawable/circle"
+            android:padding="8.25dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:textColor="#292b69"
+            android:visibility="visible"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textAlignment="center"
+            android:id="@+id/dias"/>
 
-        <TextView
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-            android:background="#a9a9a9"
-            android:visibility="visible"/>
-        
         <Space
-            android:layout_width="25dp"
-            android:layout_height="25dp" />
+            android:layout_width="5dp"
+            android:layout_height="10dp" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:text="Livro tal"
-                android:id="@+id/tituloLivro"
-                android:gravity="center_horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#ffff"
-                android:textColor="#0b0b0b"
-                android:textSize="16dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:gravity="center">
 
-            <TextView
-                android:text="42/42/4242"
-                android:padding="7dip"
-                android:id="@+id/dataLivro"
-                android:textSize="16dp"
-                android:background="#ffff"
-                android:textColor="#0b0b0b"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp" />
-
-            <TextView
-                android:text="|"
-                android:padding="7dip"
-                android:textSize="16dp"
-                android:background="#ffff"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp" />
-
-            <TextView
-                android:text="Institute"
-                android:padding="7dip"
-                android:id="@+id/instituteLivro"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:textColor="#0b0b0b"
-                android:background="#ffff"
-                android:textSize="16dp"/>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:text="Título |  "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#ffff"
+                    android:textColor="#0b0b0b"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:text="Livro tal"
+                        android:id="@+id/tituloLivro"
+                        android:gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="#ffff"
+                        android:textColor="#0b0b0b"
+                        android:textSize="16sp"/>
+
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:text="42/42/4242"
+                    android:padding="7dip"
+                    android:id="@+id/dataLivro"
+                    android:textSize="16sp"
+                    android:background="#ffff"
+                    android:textColor="#0b0b0b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="|"
+                    android:padding="7dip"
+                    android:textSize="16sp"
+                    android:background="#ffff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:text="Institute"
+                        android:padding="7dip"
+                        android:id="@+id/instituteLivro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#0b0b0b"
+                        android:background="#ffff"
+                        android:textSize="16sp"/>
+
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="Autor |  "
+                    android:textColor="#0b0b0b"
+                    android:background="#ffff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:text="Autor tal"
+                        android:id="@+id/autorLivro"
+                        android:gravity="center_horizontal"
+                        android:textColor="#0b0b0b"
+                        android:background="#ffff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"/>
+
+                </HorizontalScrollView>
+
+            </LinearLayout>
 
         </LinearLayout>
-
-        <TextView
-            android:text="Autor tal"
-            android:id="@+id/autorLivro"
-            android:gravity="center_horizontal"
-            android:textColor="#0b0b0b"
-            android:background="#ffff"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16dp"/>
 
     </LinearLayout>
 
 </LinearLayout>
+
+</LinearLayout>
+
+
